@@ -15,3 +15,9 @@ spago install prelude
 ## Documentation
 
 Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-prelude).
+
+## Notes for psel backend
+
+### `Bounded Int` instance removed
+
+Since elisp's integer has bignum, its not bounded.
