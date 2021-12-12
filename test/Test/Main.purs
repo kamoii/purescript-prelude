@@ -108,13 +108,14 @@ testIntDivMod = do
       assert (msg <> "Remainder should be between 0 and `abs b`, got: " <> show r) $
         0 <= r && r < abs b
 
+-- Int for psel is not bounded.
 testIntDegree :: AlmostEff
 testIntDegree = do
-  let bot = bottom :: Int
+  -- let bot = bottom :: Int
   assert "degree returns absolute integers" $ degree (-4) == 4
   assert "degree returns absolute integers" $ degree 4 == 4
-  assert "degree returns absolute integers" $ degree bot >= 0
-  assert "degree does not return out-of-bounds integers" $ degree bot <= top
+  -- assert "degree returns absolute integers" $ degree bot >= 0
+  -- assert "degree does not return out-of-bounds integers" $ degree bot <= top
 
 testRecordUnsafe :: AlmostEff
 testRecordUnsafe = do
