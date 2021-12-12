@@ -1,5 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
+(require 'psel)
+
 (defvar Test.Utils.throwErr
   (lambda (msg)
     (lambda (_)
