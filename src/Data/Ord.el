@@ -1,7 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-(require 'psel)
-
 ;; Equality is checked first, so `ltf` function only need to consider when
 ;; arguments are diffierent.
 (defun Data.Ord._unsafeCompareImpl (ltf)
@@ -41,9 +39,7 @@
         ((null xs) 1)
         ((null ys) -1)
         (t
-         (let ((o (psel/funcall2 f (car xs) (car ys))))
+         (let ((o (funcall (funcall f (car xs)) (car ys))))
            (if (not (eq o 0))
                o
              (Data.Ord._ordArrayImpl f (cdr xs) (cdr ys)))))))
-
-;; You don't need to provide feature. This file will copied with a diffirent file name.

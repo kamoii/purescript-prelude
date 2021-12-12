@@ -1,7 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-(require 'psel)
-
 ;; TBH, I don't know what I'm doing. Copying what .js is doing.
 
 (defvar Data.EuclideanRing.intDegree
@@ -23,6 +21,6 @@
           (mod (+ (mod x yy) yy) yy))))))
 
 (defvar Data.EuclideanRing.numDiv
-  (psel/curry2 '/))
-
-;; You don't need to provide feature. This file will copied with a diffirent file name.
+  (lambda (a)
+    (lambda (b)
+      (/ a b))))

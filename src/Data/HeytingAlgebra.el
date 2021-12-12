@@ -1,11 +1,14 @@
 ;; -*- lexical-binding: t; -*-
 
-(require 'psel)
+(defvar Data.HeytingAlgebra.boolConj
+  (lambda (a)
+    (lambda (b)
+      (and a b))))
 
-(defvar Data.HeytingAlgebra.boolConj (psel/curry2 'and))
+(defvar Data.HeytingAlgebra.boolDisj
+  (lambda (a)
+    (lambda (b)
+      (or a b))))
 
-(defvar Data.HeytingAlgebra.boolDisj (psel/curry2 'or))
-
-(defvar Data.HeytingAlgebra.boolNot (symbol-function 'not))
-
-;; You don't need to provide feature. This file will copied with a diffirent file name.
+(defvar Data.HeytingAlgebra.boolNot
+  (lambda (a) (not a)))

@@ -22,5 +22,3 @@
   (lambda (key)
     (lambda (obj)
       (psel/alist-delete (intern key) obj))))
-
-;; You don't need to provide feature. This file will copied with a diffirent file name.
