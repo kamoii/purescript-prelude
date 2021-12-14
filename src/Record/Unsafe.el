@@ -16,7 +16,7 @@
   (lambda (key)
     (lambda (val)
       (lambda (obj)
-        (psel/alist-set (intern key) val obj)))))
+        (psel/alist-set-or-insert (intern key) val obj)))))
 
 (defvar Record.Unsafe.unsafeDelete
   (lambda (key)
