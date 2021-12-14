@@ -3,4 +3,5 @@
 (defvar Control.Apply.arrayApply
   (lambda (fs)
     (lambda (xs)
-      (apply 'vector (mapcar (lambda (f) (mapcar f xs) fs))))))
+      (apply 'vconcat
+             (mapcar (lambda (f) (apply 'vector (mapcar f xs))) fs)))))
