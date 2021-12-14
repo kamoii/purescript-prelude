@@ -42,7 +42,7 @@
 (defvar Data.Show.cons
   (lambda (head)
     (lambda (tail)
-      (vconcat [head] tail))))
+      (vconcat (vector head) tail))))
 
 ;; https://github.com/purescript/purescript-prelude/pull/274
 ;; This function will change name to `Data.Show.intercalate`.
@@ -51,4 +51,3 @@
   (lambda (separator)
     (lambda (xs)
       (mapconcat 'identity xs separator))))
-
