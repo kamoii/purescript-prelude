@@ -9,7 +9,14 @@
 
 (defvar Data.Eq.eqIntImpl Data.Eq._equal)
 
-(defvar Data.Eq.eqNumberImpl Data.Eq._equal)
+;; Float comparison.
+;; Needs to consider comparison of NaN, Infinity, 0.0 and -0.0.
+;; ref
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Float-Basics.html
+(defvar Data.Eq.eqNumberImpl
+  (lambda (a)
+    (lambda (b)
+      (= a b))))
 
 (defvar Data.Eq.eqCharImpl Data.Eq._equal)
 
