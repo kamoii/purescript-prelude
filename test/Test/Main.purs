@@ -5,10 +5,10 @@ import Data.HeytingAlgebra (ff, tt, implies)
 import Data.Ord (abs)
 import Record.Unsafe as Record
 import Test.Data.Generic.Rep (testGenericRep)
-import Test.Utils (AlmostEff, assert)
+import Test.Utils (AlmostEff, assert, MainLike, mkMainLike)
 
-main :: AlmostEff
-main = do
+main :: MainLike
+main = mkMainLike do
   testNumberShow show
   testOrderings
   testOrdUtils
