@@ -5,7 +5,7 @@
 (defvar Test.Utils.throwErr
   (lambda (msg)
     (lambda (_)
-      (psel/throw-assert-error msg))))
+      (psel/assert-error msg))))
 
 (defvar Test.Utils.mkMainLike
   (lambda (f)
