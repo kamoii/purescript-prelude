@@ -18,4 +18,4 @@
 
 (defun Test.Main._testNumberShow (f number str)
   (when (not (equal (funcall f number) str))
-    (psel/throw-assert-error "testNumberShow")))
+    (psel/assert-error "testNumberShow")))
