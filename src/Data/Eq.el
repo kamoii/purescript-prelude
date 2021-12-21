@@ -27,12 +27,8 @@
     (lambda (xs)
       (lambda (ys)
         (and (eq (length xs) (length ys))
-             (Data.Eq._eqArrayImpl 0 f xs ys))))))
-
-(defun Data.Eq._eqArrayImpl (i f xs ys)
-  (cond ((eq i (length xs))
-         t)
-        ((not (funcall (funcall f (aref xs i)) (aref ys i)))
-         nil)
-        (t
-         (Data.Eq._eqArrayImpl (1+ i) f xs ys))))
+             (let ((i 0)
+                   (len (length xs)))
+               (while (and (< i len) (psel/funcall f (aref xs i) (aref ys i)))
+                 (setq i (1+ i)))
+               (= i len)))))))
