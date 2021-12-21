@@ -12,6 +12,7 @@ main = mkMainLike do
   testNumberShow show
   testOrderings
   testOrdUtils
+  testEq
   testIntDivMod
   testIntDegree
   testRecordInstances
@@ -84,6 +85,13 @@ testOrdUtils = do
   assert "-5 should not be between 0 and 10" $ between 0 10 (-5) == false
   assert "5 should be between 0 and 10" $ between 0 10 5 == true
   assert "15 should not be between 0 10" $ between 0 10 15 == false
+
+testEq :: AlmostEff
+testEq = do
+  assert "Eq Array instance(1)" $ [] == ([] :: Array Int)
+  assert "Eq Array instance(2)" $ [1] /= []
+  assert "Eq Array instance(3)" $ [1, 2, 3] == [1, 2, 3]
+  assert "Eq Array instance(4)" $ [1, 2, 3] /= [1, 2, 1]
 
 testIntDivMod :: AlmostEff
 testIntDivMod = do
